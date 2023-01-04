@@ -1,0 +1,699 @@
+.a {
+  color: pink;
+}
+
+*,
+*::before,
+*::after {
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: '微軟正黑體';
+}
+
+.container {
+  width: 75%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 20px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem !important;
+}
+
+// 取名變數 css $ 
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #ffc280 --info: #28a745;
+  --warning: #17a2b8;
+  --danger: #dc3545;
+}
+
+// 取名變數 $ 而且是全預變數 sass變數不會被編譯出去
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #ffc280;
+$info: #28a745;
+$warning: #17a2b8;
+$danger: #dc3545;
+$white: white;
+
+$gradient: linear-gradient(0deg, rgb(244, 186, 255) 0%, rgb(226, 152, 215) 50% rgb(255, 214, 251)100%);
+$border: 5px solid #fff;
+$border-radius: 0.5rem;
+$padding: 0.5rem 0.5rem;
+$margin-bottom: 1rem;
+$shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+
+h1 {
+  background: $gradient;
+  color: $white;
+  border: $border;
+  border-radius: $border-radius;
+  padding: $padding;
+  box-shadow: $shadow;
+  margin-bottom: $margin-bottom;
+}
+
+// 04 流程控制
+$number: 1;
+// random 為 sass 內建函式提供亂數功能
+$number: random(3);
+
+.mybox {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // @if @else if @else
+  @if($number==1) {
+    background-color: rgb(255, 137, 218);
+  }
+
+  @else if $number ==2 {
+    background-color: lightblue;
+  }
+
+  @else {
+    background-color: #ffc280;
+  }
+
+  // 字串分為引號、沒引號，判斷會通過
+  @if(helloword=='hellowworld') {
+    box-shadow: 0 0 10px 15px rgba(0 0 0 0.5);
+  }
+
+  $stand: '石之自由';
+  $master: '空条徐倫';
+
+  // 使用 and 條件成立
+  @if($stand=='石之自由' and $master=='空条徐倫') {
+    color: rgb(27, 182, 138) !important;
+  }
+
+  @else {
+    color: white !important;
+  }
+
+  /* 使用 or 兩運算式 任一個成立就可以 */
+  $isHeight: '高';
+  $isRich: '富';
+  $isHandsome: '帥';
+
+  @if($isHeight=='高' or $isRich=='窮' or $isHandsome=='帥') {
+    font-size: 50px;
+    font-weight: bolder;
+  }
+
+  /* 使用 not 反轉運算式的結果 */
+  $box-width: 50px;
+
+  @if not($box-width==100px) {
+    border: 10px solid rgb(250, 250, 114);
+  }
+
+  $mySpacing: 20px;
+  /*內建提供函式，類似三元運算子 if就不用加上@*/
+  outline: if($mySpacing > 10px, 10px solid rgb(253, 213, 213), 10px solid black);
+}
+
+/* 使用 @for...from...through 迴圈來寫 */
+@for $i from 1 through 3 {
+  .through-#{$i} {
+    width: 50px * $i;
+    height: 50px * $i;
+    display: inline-block;
+    background-color: #aaa;
+  }
+}
+
+/* 使用 @for...from...to 迴圈來寫 */
+@for $i from 1 to 3 {
+  .to-#{$i} {
+    width: 50px * $i;
+    height: 50px * $i;
+    display: inline-block;
+    background-color: #aaa;
+  }
+}
+
+/* 05.巢狀(嵌套,nested)*/
+#section05 {
+  p {
+    border-bottom: 1px solid #333;
+  }
+
+  .menu {
+    margin-top: 2rem;
+    padding: 0;
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      font-size: 1rem;
+      width: 100px;
+      text-align: center;
+
+      &+li {
+        border-left: 2px solid #eee;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: #eee;
+        background: #333;
+
+        // & 符號可以表示副層選擇器
+        &:hover {
+          color: #333;
+          background: #eee;
+        }
+      }
+    }
+  }
+}
+
+// & 與 clearfix
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.sidebar {
+  padding-left: 0;
+  display: flex;
+
+  &__item {
+    color: #ffc280;
+    padding: 1rem;
+    border: 1px solid #333;
+    text-decoration: none;
+    background: #000;
+
+    &--active {
+      background: #17a2b8;
+    }
+
+    &:hover {
+      background-color: #28a745;
+      color: white;
+    }
+
+    & a {
+      color: white;
+      line-height: 32px;
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
+
+#exercise {
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .col {
+      width: 32%;
+      margin: 1%;
+      padding: 1rem;
+      color: #a72898;
+      transition: 1s;
+      border: 1px solid #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+      &:hover {
+        transform: translateY(-20px);
+      }
+
+      a {
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        color: #a72898;
+
+        &:hover {
+          background: #17a2b8;
+          color: #fff;
+        }
+      }
+
+      p {
+        text-align: center;
+        font-weight: bolder;
+
+        &:hover {
+          background: #a72898;
+          color: #eee;
+        }
+      }
+    }
+  }
+}
+
+/* 06.繼承 */
+
+%extend {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+#extend {
+  margin-top: 1rem;
+  overflow: auto;
+}
+
+.box1 {
+  @extend %extend;
+  background: #17a2b8;
+}
+
+.box2 {
+  @extend %extend;
+  background: #a72898;
+}
+
+.box3 {
+  @extend %extend;
+  background: #28a745;
+}
+
+/*07 計算*/
+.box4 {
+  background: #333;
+  /*加法*/
+  width: 50px + 50px;
+  height: 50px + 50;
+  /*減法*/
+  width: 50px - 10px;
+  height: 50px - 5px;
+
+  /*乘法*/
+  width: 50px * 2;
+
+  /*相除*/
+  height: calc(50px / 2);
+
+  /*餘數*/
+  $child: 500px;
+  $mother: 10;
+  height: calc($child / $mother);
+}
+
+@function randomFont() {
+  $result: random(3);
+
+  @if(result==1) {
+    @return 20px;
+  }
+
+  @else if($result==2) {
+    @return 40px;
+  }
+
+  @else {
+    @return 60px;
+  }
+}
+
+// 傳參數
+@function boxLength1($length, $base) {
+  @return $length * $base * 1px;
+}
+
+@function boxLength2($length: 100, $base: 1) {
+  @return $length * $base * 1px;
+}
+
+.funbox {
+  width: 400px;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  color: #fff;
+  background: lightblue;
+  font-size: randomFont();
+  width: boxLength1(100, 2);
+  height: boxLength2();
+}
+
+// px to rem
+@function rem($px) {
+  @if(unit($px)=='px') {
+    @return calc($px / 16px) * 1rem;
+  }
+
+  @else {
+    @return calc($px / 16) * 1rem;
+  }
+}
+
+.rem {
+  font-size: rem(16px);
+  padding: rem(48);
+}
+
+
+// 灰階
+@function gray($level: 0%) {
+  @return darken(red, $level);
+}
+
+#section08 {
+  .container {
+    p {
+      font-size: 18px;
+      line-height: 27px;
+      background: #eee;
+    }
+  }
+}
+
+/* 09.Mixins */
+// 定義一個 mixin
+@mixin mixinTry() {
+  width: 100px;
+  height: 100px;
+  background: #333;
+}
+
+// 使用 include 呼叫 mixin
+.mininTry {
+  @include mixinTry();
+}
+
+// 可以設定參數
+@mixin box($width, $height, $bg, $border, $outline: 10px solid #333) {
+  // 產生樣式
+  width: $width ;
+  height: $height;
+  background: $bg;
+  border: $border;
+  outline: $outline;
+}
+
+@mixin flex($main, $cross) {
+  display: flex;
+  justify-content: $main;
+  align-items: $cross;
+}
+
+// 呼叫
+// 參數無法略過 如果不使用可以用null
+.boxflex {
+  @include box(100px, 100px, pink, 5px solid #333);
+  @include flex(center, center);
+}
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.5;
+  padding: 0.3rem 0.75rem;
+  margin: 0 0.2rem;
+  border-radius: 0.25rem;
+}
+
+// 也可以省略括號
+@mixin box-shadow {
+  box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.6);
+}
+
+@mixin btn-bg($bgcolor) {
+  & {
+    @include box-shadow();
+    background-color: $bgcolor;
+  }
+
+  &:hover {
+    @if($bgcolor==#000) {
+      background-color: lighten($bgcolor, 10%)
+    }
+
+    @else {
+      background-color: darken($bgcolor, 10%)
+    }
+  }
+}
+
+.btn-primary {
+  @include btn-bg(#007bff);
+}
+
+.btn-success {
+  @include btn-bg(#28a745);
+}
+
+.btn-danger {
+  @include btn-bg(#dc3545);
+}
+
+.btn-dark {
+  @include btn-bg(#000);
+}
+
+/* 10. 使用mixin + @content 設計RWD */
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+@mixin sm {
+  @media (min-width:$breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width:$breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width:$breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width:$breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width:$breakpoint-xxl) {
+    @content;
+  }
+}
+
+
+#section10 {
+  .container {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 0.25rem;
+  }
+
+  .col+.col {
+    margin-top: 20px;
+  }
+
+  // sm
+  @include sm {
+    .container {
+      width: 75%;
+    }
+
+    .col {
+      width: 50%;
+    }
+
+    .col+.col {
+      margin-top: 0;
+    }
+  }
+
+  @include md {
+    .col {
+      width: 33%;
+    }
+  }
+
+  @include lg {
+    .col {
+      width: 25%;
+    }
+  }
+
+  @include xl {
+    .col {
+      width: 20%;
+    }
+  }
+
+  @include xxl {
+    .col {
+      width: 10%;
+    }
+  }
+}
+
+/* list 列表*/
+
+$width_list: 100px, 200px, 300px;
+$margin_list: 10px, 20px, 30px, 40px;
+$bgcolor_list: red, pink, lightblue;
+$zindex_list: 1, 2, 3, 4;
+$border_list: 1px solid #333, 1px solid blue, 1px solid red;
+
+/* nth(list,index) 取出 list 裡面的值 */
+
+.list {
+  width: nth($width_list, 1);
+  width: nth($width_list, 2);
+  width: nth($width_list, 3);
+  border: nth($border_list, 1);
+  border: nth($border_list, 2);
+  border: nth($border_list, 3);
+}
+
+/* index(list,item) */
+.index {
+  line-height: index($width_list, 100px);
+  line-height: index($width_list, 200px);
+  line-height: index($width_list, 300px);
+  z-index: index($zindex_list, red);
+  z-index: index($zindex_list, pink);
+  z-index: index($zindex_list, lightblue);
+}
+
+/* length(list) 取出list長度 */
+.length {
+  z-index: length($bgcolor_list);
+}
+
+// 使用for來便利list項目的item
+@for $i from 1 through length($bgcolor_list) {
+  .bg-#{nth($bgcolor_list, $i)} {
+    background-color: nth($bgcolor_list, $i);
+  }
+}
+
+@each $item in $bgcolor_list {
+  .each-bg-#{$item} {
+    background-color: $item;
+  }
+}
+
+/* map */
+$map1: (
+  primary:red,
+  secondary:green,
+  warning:blue
+);
+
+.nth-map {
+  color: nth($map1, 1);
+}
+
+@each $key,
+$value in $map1 {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+}
+
+// map2
+$map2: (
+  size1:100px,
+  size2:200px,
+  size3:300px
+);
+
+.map-keys {
+  color: map-keys($map2);
+}
+
+@each $key in map-keys($map2) {
+  .#{$key} {
+    color: #dc3545;
+  }
+}
+
+// map3
+$map3: (
+  shadow1:0 0 10px black,
+  shadow2:0 0 20px black,
+  shadow3:0 0 30px black
+);
+
+$i: 0;
+
+@each $value in map-values($map3) {
+  $i: $i +1;
+
+  .w#{$i} {
+    box-shadow: $value;
+  }
+}
+
+// map4 物件包物件
+$map4: (
+  default:(width:100px,
+    height:100px),
+  box1:(width:200px,
+    height:200px),
+  box3:(width:300px,
+    height:300px)
+);
+
+@each $key,
+$value in $map4 {
+  $width: map-get($value, width);
+  $height: map-get($value, height);
+
+  .btn-#{$key} {
+    width: $width;
+    height: $height;
+  }
+}

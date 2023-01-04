@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+  <style>
+    /* 手風琴 */
+    .breadcrumb-divider-1 {
+      --bs-breadcrumb-divider: '>'
+    }
+
+    .breadcrumb-divider-2 {
+      --bs-breadcrumb-divider: '→'
+    }
+
+
+    .breadcrumb-divider-3 {
+      --bs-breadcrumb-divider: '\1F92A'
+    }
+
+    /* 編號 */
+    ul.mycounter {
+      /* 重製第一層計數器，設定識別字為 number-lv-1 */
+      counter-reset: number-lv-1;
+    }
+
+    .container-fluid,
+    .container {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .progress {
+      margin-bottom: 1rem;
+    }
+
+    #progress .progress-bar {
+      background: pink;
+    }
+
+    #progress .progress-bar.active~.progress-bar {
+      background: #999;
+    }
+
+    .content {
+      width: calc(100% - 300px);
+      padding: 0 2rem;
+      margin-left: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1 class="text-center">手風琴 (Accordion) - flush -總是開啟</h1>
+    <div class="row">
+      <div class="col-4">
+        <div class="accordion" id="lisia123">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#lisia01">
+                手風琴 (Accordion)
+              </button>
+            </h2>
+            <!-- <div id="lisia01" class="accordion-collapse collapse show" data-bs-parent="#lisia123"> -->
+            <div id="lisia01" class="accordion-collapse collapse" data-bs-parent="#lisia123">
+              <div class="accordion-body">
+                <ul>
+                  <li> show 是控制最一開始是誰打開</li>
+                  <li> data-bs-toggle="觸發功能是什麼" data-bs-target="目標是誰"</li>
+                  <li> 結合 Collapse JavaScript 插件來建構垂直折疊的手風琴。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#lisia02">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="lisia02" class="accordion-collapse collapse" data-bs-parent="#lisia123">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#lisia03">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="lisia03" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#lisia123">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="accordion accordion-flush" id="flush">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush01">
+                Flush 手風琴
+              </button>
+            </h2>
+            <div id="flush01" class="accordion-collapse collapse" data-bs-parent="#flush">
+              <div class="accordion-body">加上 .accordion-flush 來移除預設 background-color、 外框和圓角使該手風琴能和父容器緊鄰。</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush02">
+                總是開啟
+              </button>
+            </h2>
+            <div id="flush02" class="accordion-collapse collapse" data-bs-parent="#flush">
+              <div class="accordion-body">省略每個在 .accordion-collapse 上的 data-bs-parent 屬性，使 accordion item 在打開另一個 item
+                時保持打開狀態。</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush03">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="flush03" class="accordion-collapse collapse" data-bs-parent="#flush">
+              <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
+                happening here in terms of content, but just filling up the space to make it look, at least at first
+                glance, a bit more representative of how this would look in a real-world application.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                總是開啟
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+              aria-labelledby="panelsStayOpen-headingOne">
+              <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+              aria-labelledby="panelsStayOpen-headingTwo">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThree">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+              aria-labelledby="panelsStayOpen-headingThree">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <h1 class="text-center">麵包屑 (Breadcrumb)</h1>
+      <div class="col-12">
+        <p>分隔符 <br>
+          分隔符透過 ::before 以及 content 而自動被加入在 CSS 中。可以透過修改本地 CSS 自定義屬性 --bs-breadcrumb-divider 或 $breadcrumb-divider Sass
+          變數來改變，如有需要還可以透過 $breadcrumb-divider-flipped 的 RTL 對應項。預設使用 Sass 變數為自定義屬性的備案。這樣您將獲得一個全域分隔符，並且無需重新編譯 CSS
+          就能覆蓋該分隔符。</p>
+        <p>當使用 Sass 進行更動時，需要使用 quote 函式生成字串周圍的引號。例如，> 用作分隔符：</p>
+        <p>也可使用 <a href="https://unicode-table.com/en/1F92A/">unicode</a>的css編碼來套用</p>
+      </div>
+      <div class="col-6">
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Home</li>
+            <li class="breadcrumb-item active">music</li>
+          </ol>
+        </nav>
+
+        <nav class="breadcrumb-divider-1">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Library</li>
+          </ol>
+        </nav>
+
+        <nav class="breadcrumb-divider-2">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active">Data</li>
+          </ol>
+        </nav>
+
+        <nav class="breadcrumb-divider-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active">Data</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <h1 class="text-center">列表群組 (List group)</h1>
+      <div class="col-4">
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item">A list item</li>
+          <li class="list-group-item">A list item</li>
+          <li class="list-group-item">A list item</li>
+        </ol>
+      </div>
+      <div class="col-4">
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Subheading</div>
+              Content for list item
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Subheading</div>
+              Content for list item
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Subheading</div>
+              Content for list item
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+        </ol>
+      </div>
+      <div class="col-4">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small>And some small print.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small class="text-muted">And some muted small print.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small class="text-muted">And some muted small print.</small>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h1 class="text-center">進度條 (Progress)</h1>
+    <ul>
+      <li>在 .progress 上設置一個 height 值，如果改變這個值，那麼內部的 .progress-bar 就會自動調整大小。</li>
+      <li>將 .progress-bar-striped 加到任何 .progress-bar 中，就能透過 CSS 漸變對進度條的背景顏色加上條紋。</li>
+      <li>條紋漸變也可以製成動畫。 將 .progress-bar-animated 加到 .progress-bar 中，透過 CSS3 繪製從右到左的動態效果。</li>
+      <li>可在一個進度條元件中加入多個進度條。</li>
+    </ul>
+    <div class="row">
+      <div class="col">
+        <div class="progress">
+          <div class="progress-bar">0%</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-success progress-bar-striped" style="width: 25%">25%</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: 50%">50%</div>
+        </div>
+        <div class="progress" style="height: 50px;">
+          <div class="progress-bar bg-warning progress-bar-striped" style="width: 75%">75%</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-danger" style="width: 100%">100%</div>
+        </div>
+        <div class="progress" style="height: 30px;">
+          <div class="progress-bar" style="width: 15%">15%</div>
+          <div class="progress-bar bg-success progress-bar-striped progress-bar-animated " style="width: 30%">30%</div>
+          <div class="progress-bar bg-info" style="width: 20%">20%</div>
+        </div>
+        <h3>自己設置 id 並且在 css 設定active</h3>
+        <div id="progress" class="progress fs-6" style="height: 30px;">
+          <div class="progress-bar progress-bar-striped progress-bar-animated active" style="width: 20%">步驟一</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">步驟二</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">步驟三</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">步驟四</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">步驟五</div>
+        </div>
+        <button id="btnback" class="btn btn-primary">上一步</button>
+        <button id="btn" class="btn btn-primary">下一步</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Offcanvas 元件</h1>
+    <p>下方是一個預設顯示的 offcanvas 範例 (通過 .offcanvas 上的 .show )。Offcanvas 支援包括帶有關閉按鈕的標題和一些初始 padding 的 optional body
+      class。我們建議您盡可能在 offcanvas header 包含關閉操作，或是提供明確的關閉操作。</p>
+    <p>當 Offcanvas 和它的背景顯示時，body 元素禁止滾動。使用 data-bs-scroll 屬性切換body 滾動和使用 data-bs-backdrop 切換背景。
+    </p>
+    <!-- 觸發按鈕 -->
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#lisia" role="button">
+      a 使用 harf 開啟
+    </a>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#lisia">
+      Button 使用 data-bs-target 開啟
+    </button>
+
+    <!-- 展開內容 -->
+
+    <!-- 
+      .show 顯示側邊欄，如果一開始就要顯示就加上
+
+      開啟的位置
+      .offcanvas-start (左)
+      .offcanvas-end (右)
+      .offcanvas-top (上)
+      .offcanvas-botton (下)
+
+    -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="lisia">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Offcanvas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
+          etc.
+        </div>
+        <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 側邊欄 -->
+  <div class="content">
+    <h1>內容</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit repellat similique iure accusamus officiis vitae
+      amet dolorum pariatur magni culpa tenetur, dicta quaerat dolorem sapiente. Repellat laborum nulla minus deleniti.
+    ab eius dolores. Iure iusto
+      corporis officia temporibus distinctio magni. Aperiam, at sunt? Alias eius nisi hic cum temporibus repellendus
+      adipisci placeat autem quasi perferendis. Sed deleniti dolor optio, dolorum qui ex excepturi distinctio ipsa esse
+      nesciunt rerum aspernatur cum sint ipsam quam et facilis corrupti tempore aperiam adipisci nam provident iusto!
+      Natus harum, ipsam deleniti quo amet, assumenda porro odio quam sequi expedita eligendi doloremque ipsum quas
+      consectetur vel officiis impedit ipsa voluptates, asperiores dolorem nam totam sit optio. Cum placeat dignissimos
+      laudantium assumenda quasi ducimus ipsa qui accusamus quaerat?</p>
+      
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#lisia" role="button">
+      a 使用 harf 開啟
+    </a>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#lisia">
+      Button 使用 data-bs-target 開啟
+    </button>
+
+    <div class="offcanvas offcanvas-start show" data-bs-backdrop="false" data-bs-scroll="true" style="width: 300px;" id="lisia">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">後臺管理</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                Accordion Item #1
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <ul class="list-group">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <ul class="list-group">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <ul class="list-group">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script>
+    const btn = document.querySelector('#btn')
+    const btnback = document.querySelector('#btnback')
+    const progress = document.querySelectorAll('#progress .progress-bar')
+    let currentIndex = 0
+
+    btn.addEventListener('click', clickHandler)
+    function clickHandler(e) {
+      currentIndex++
+      progress.forEach(function (i) {
+        i.classList.remove('active')
+        progress[currentIndex].classList.add('active')
+      })
+    }
+
+    // btnback.addEventListener('click', clickHandler2)
+    // function clickHandler2(e) {
+    //   currentIndex--
+    //   progress.forEach(function(i){
+    //     i.classList.add('active')
+    //     progress[currentIndex].classList.remove('active')
+    //   })
+    // }
+  </script>
+</body>
+
+</html>

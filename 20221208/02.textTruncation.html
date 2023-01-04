@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+  <style>
+    .container {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .text-truncate-mulitaple {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>文字截斷 (Text truncation)</h1>
+    <p>對於較長的內容，可以添加 .text-truncate 類別，以透過刪節號截斷文字。需為 display: inline-block 或是 display: block。</p>
+    <p>內容擺不下時會以...方式呈現</p>
+    <p>單行呈現如下：</p>
+    <div class="row">
+      <!-- Block Level -->
+      <h3>Block Level</h3>
+      <div class="col-2 text-truncate">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error non numquam reiciendis eius cumque quisquam
+        expedita vel, mollitia animi. Aut omnis fugit mollitia, repellat, facilis laudantium ratione veritatis, quo modi
+        perferendis cupiditate deserunt cum aliquam impedit odio beatae nulla perspiciatis! Minima cum maxime adipisci
+        culpa! Nihil enim voluptate recusandae, commodi sunt laboriosam laudantium doloremque quas molestiae fugit ut id
+        totam dolore rerum quod ducimus at. Commodi neque ipsam quidem minus blanditiis porro, cum vitae, a amet
+        incidunt quaerat tempora nihil perspiciatis error earum consequuntur quos et unde aliquid modi reiciendis
+        nesciunt cupiditate sit delectus. Consequuntur minus deserunt nihil cumque dolorum!
+      </div>
+
+      <!--inline Block Level -->
+      <hr>
+
+      <h3>inline Block Level</h3>
+      <div class="d-inline-block text-truncate" style="width: 500px;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illum cupiditate nam ducimus. Omnis saepe quis
+        sed pariatur et fugit eius atque, ut culpa soluta earum incidunt iure ratione voluptas eum asperiores, corporis
+        libero fugiat voluptatum. Eos unde beatae quam facere nostrum ducimus! Explicabo quibusdam sequi impedit a natus
+        esse velit ea qui atque voluptas alias deserunt dolores provident, cumque minima laudantium saepe placeat ad.
+        Officia eveniet laudantium repellat natus vero. Libero assumenda quidem praesentium accusantium vero accusamus
+        esse pariatur sed repudiandae sunt, cumque soluta iste molestiae eum error dignissimos similique exercitationem
+        quae ab? Nesciunt eius amet at ex corporis?
+      </div>
+      <hr>
+      <h2>多行文字截斷</h2>
+      <div style="width: 300px;">
+        <p class="text-truncate-mulitaple">
+          我會受傷留言防止出去這段國際，球隊玩具平台希望小姐包括，記住變得選項版主提前高中歷史領先協會獎勵外國英雄，醫學不足，她們他人一會插入專用擴大安徽，我不興趣，動。利用物品效益領導妹妹鍵盤目標簡介報告，頻道將來電視的人，打印堅決軟體裝置精英能量允許尋求理論點擊數怎麼會興趣寫真，多媒體轎車這麼多主義一副某種，下列查看堅決角色有一強大正好學歷安裝一口氣，好激動直接雖然大學連續代表，沉默資料一看解決治理成立緊張發佈時間主持每年一步道路回到，歌詞下列是我職責理解授權方式，蘋果告訴我標題鄉民們字元，規律準備威望雙方地方訂單，計算機皇帝，法律發揮民間呵呵，長沙一段時間。
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

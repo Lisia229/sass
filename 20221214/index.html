@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <section id="section01">
+    <div class="container">
+      <h1>01.Sass介紹</h1>
+      <p>Sass 是 css　的預處理器，目的在減少　css 的重工</p>
+      <p>Sass 有變數、函式、流程控制、嵌套、繼承、混入mixins 這些功能讓我們使用，所以寫樣式時比 css 更有彈性。</p>
+      <p>Sass 可以更有效率維護樣式的結構</p>
+      <p>Sass 需要編譯成原生的 css 才能使用，因為瀏覽器看不懂 sass。</p>
+    </div>
+  </section>
+
+  <!-- 01.sass 資料型態 -->
+  <!-- primitive data type => 數字、null、boolean...
+  object type => array、function、new Date、 -->
+
+  <section id="setion02">
+    <div class="container">
+      <h1>02. Sass 資料型態</h1>
+      <ol>
+        <li>1. number(數字):數字有分有單位或無單位，1,10,100,10px,10rem</li>
+        <li>2. string(字串):有分有引號字串與無引號字串</li>
+        <li>3. color(顏色):blue, #007bff, #fff, rgba(0,0,0,0.2)</li>
+        <li>4. boolean(布林值)</li>
+        <li>5. null(空值)</li>
+        <li>6. list(像陣列):用半形空格或逗號作為分隔，例如20px 0 20px</li>
+        <li>7. map(物件)</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 變數 -->
+  <section id="section03">
+    <div class="container">
+      <h1>03. 變數</h1>
+      <p>宣告使用$ ，變數位置即是作用域，就像 JS 的 let 宣告，寫在大括號裡面的是區域變數，大括號外的是全域變數</p>
+      <p>變數底線 _ 和連結線 - 兩者是一樣的變數，例如 $bg_dark、$bg-dark</p>
+      <p>使用變數可以維持網站的一致性，節省修改成本，只需要修改變數，不需要再 css 修改</p>
+    </div>
+  </section>
+
+  <!--  -->
+  <section id="section04">
+    <div class="container">
+      <h1>04.流程控制</h1>
+      <h3>@if、@else if、@else</h3>
+      <p>判斷條件可以小括號，也可以不括號</p>
+      <p>使用 and、or、not 處理判斷運算式的結果是 true 或 false
+      </p>
+      <div class="mybox">歐拉</div>
+
+      <h3>@for 迴圈有兩種 through 與 to</h3>
+      <h4>@for $i from (start num) through (end num){...}，包含end num</h4>
+      <div class="thorough-1"></div>
+      <div class="thorough-2"></div>
+      <div class="thorough-3"></div>
+      <h4>@for $i from (start num) to (end num){...}，不包含end num</h4>
+      <div class="to-1"></div>
+      <div class="to-2"></div>
+    </div>
+  </section>
+
+  <div id="section05">
+    <div class="container">
+      <h1>05. 巢狀(嵌套,nested)</h1>
+      <p>& 佔位符號可以替換父層選擇器</p>
+      <ul class="menu">
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="bem">
+    <div class="container">
+      <h2>BEM 命名</h2>
+      <aside class="sidebar">
+        <a class="sidebar__item sidebar__item--active" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+      </aside>
+    </div>
+  </section>
+
+  <section id="exercise">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>國內外建議處理器用來個性國內，才是時期交給看到上傳承認喜愛認真丈夫貢獻，右鍵本週草魚新年，並非障礙。國內外建議處理器用來個性國內，才是時期交給看到上傳承認喜愛認真丈夫貢獻，右鍵本週草魚新年，並非障礙。
+          </p>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>國內外建議處理器用來個性國內，才是時期交給看到上傳承認喜愛認真丈夫貢獻，右鍵本週草魚新年，並非障礙。國內外建議處理器用來個性國內，才是時期交給看到上傳承認喜愛認真丈夫貢獻，右鍵本週草魚新年，並非障礙。
+          </p>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>國內外建議處理器用來個性國內，才是時期交給看到上傳承認喜愛認真丈夫貢獻，右鍵本週草魚新年，並非障礙。國內外建議處理器用來個性國內，才是時期交給看到上傳承認喜愛認真丈夫貢獻，右鍵本週草魚新年，並非障礙。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section06">
+    <div class="container">
+      <h1>06. 繼承</h1>
+      <div id="extend">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section07">
+    <div class="container">
+      <h1>07. 計算</h1>
+      <p>不管有沒有單位都可以相加或相減</p>
+      <p>相乘只可以有一個單位 ex: 50px * 2</p>
+      <p>相除要記得加上括號ex: height: (50px / 2); </p>
+      <p>變數不需要括號 $child:500px $mother:10 <br>
+        height: $child/$mother
+      </p>
+      <div class="box4">
+      </div>
+    </div>
+  </section>
+
+  <section id="section08">
+    <div class="container">
+      <h1>08.函式 function</h1>
+      <p>@function 和 @mixin 有點像，差異在於 @function 來回傳結果，他無法再呼叫的地方產生一段 css 樣式，@minin 則可以使用 @include 呼叫產生一段 css 樣式</p>
+      <div class="funbox">Hello</div>
+    </div>
+  </section>
+
+  <section id="section09">
+    <div class="container">
+      <h1>09.Mixins</h1>
+      <p>@mixin 是樣式重複使用的加工廠，目的在減少樣式重工的動作，他可以使用 @include 像函式一樣被呼叫，在結構上就像 @include可以帶入參數</p>
+
+      <h2>flexbox</h2>
+      <div class="boxflex"></div>
+
+      <h2>使用 mixin 建立按鈕</h2>
+      <div class="btn btn-primary">按鈕</div>
+      <div class="btn btn-dark">按鈕</div>
+      <div class="btn btn-success">按鈕</div>
+      <div class="btn btn-danger">按鈕</div>
+    </div>
+  </section>
+
+  <section id="section10">
+    <div class="container">
+      <h1>10. 使用mixin + @content 設計RWD</h1>
+      <div class="row">
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At atque est libero. Quisquam aperiam dignissimos dicta iusto hic excepturi odit suscipit consequuntur veniam sed
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
